@@ -1,91 +1,74 @@
+//Aspect Ratio | Expanded | FractionallySizedBox
+
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main(){
+  runApp(MyApp());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Home(),
-      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
+        home:Home(),
+        theme:ThemeData(),
     );
   }
 }
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
+class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // MediaQuery
-    print(MediaQuery.of(context).size);
-    print(MediaQuery.of(context).size.width);
-    print(MediaQuery.of(context).size.height);
-    print(MediaQuery.of(context).orientation);
-    print(MediaQuery.of(context).devicePixelRatio);
-    print(MediaQuery.of(context).displayFeatures);
+   return Scaffold(
+       appBar:AppBar(
+         backgroundColor:Colors.green,
+         title:Text('Home'),
+         leading:Icon(Icons.home),
+       ),
+     body:Column(
+       children: [
+     /*    Flexible(
+           fit:FlexFit.tight,
+    child:Container(
+           width: 100,
+           height: 100,
+           color:Colors.pink ,
+         ),
+         ),
+         Flexible(
+           flex: 2,
+           fit: FlexFit.tight,
+     child:Container(
+           width: 100,
+           height: 100,
+           color:Colors.blue ,
+         ),
+         ),
+         Expanded(
+           flex: 4,
+           child:Container(
+             width: 100,
+             height: 100,
+             color:Colors.purple ,
+           ),
+         ),   */
 
-    print(MediaQuery.displayFeaturesOf(context));
-    print(MediaQuery.sizeOf(context));
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: const Text('Home'),
-      ),
-      // body: Center(
-      //   child: Wrap(
-      //     alignment: WrapAlignment.center,
-      //     crossAxisAlignment: WrapCrossAlignment.start,
-      //     spacing: 4,
-      //     children: [
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //       Text(MediaQuery.orientationOf(context).toString()),
-      //     ],
-      //   ),
-      // ),
-      /* body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth < 400) {
-            return const Center(child: Text('Mobile'));
-          } else if (constraints.maxWidth < 600) {
-            return const Center(child: Text('Tablet'));
-          } else if (constraints.maxWidth < 1200) {
-            return const Center(child: Text('Laptop'));
-          }
-
-          return const Center(child: Text('Desktop'));
-        },
-      ),*/
-      body: OrientationBuilder(
-        builder: (context, orientation) {
-          if (orientation == Orientation.landscape) {
-            return Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.yellow,
-            );
-          } else {
-            return Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.red,
-            );
-          }
-        },
-      ),
-    );
+  /*     SizedBox(
+         height:500,
+         width: 500,
+         child: FractionallySizedBox(
+           heightFactor:0.4 ,
+           widthFactor: 0.2,
+             child: Container(
+               color:Colors.blue ,
+             ),
+           ),
+       ),   */
+         
+     AspectRatio(aspectRatio:16/16, child:Container(color:Colors.orange ,) ,),
+       ],
+     ),
+   );
   }
 }
